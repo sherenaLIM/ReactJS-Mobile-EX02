@@ -2,7 +2,8 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import CheckBox from './CheckBox';
 
-// onDelete functional prop is duplicated
+// onDelete functional prop is duplicated - to remove if you don't want it to come with every single task component
+// preferable to leave it in - supplement Task.js with onDelete() function
 const Task = ({ text, onDelete}) => {
 
     return (
