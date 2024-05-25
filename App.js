@@ -2,7 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import { Button, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useState } from 'react';
 import Task from './components/Tasks';
-import CustomButton from './components/Button';
+import CheckBox from './components/CheckBox'; 
+
 
 export default function App() {
   // add a input and data state to bind to <TextInput /> and capture the todo entries
@@ -19,16 +20,19 @@ export default function App() {
     setInput("");
   }
 
-  // render and display the data entries properly
-  function renderEntries() {
-    return tasks.map((task, index) => <Task key={index} text={task} onDelete={() => deleteEntry(index)} />);
-  }
-
   // add delete function for each data entry
   function deleteEntry(index) {
     const newTasks = [...tasks.slice(0, index), ...tasks.slice(index+1)]
-    setTasks(newTasks)
+    setTasks(newTasks);
   } 
+
+  // render and display the data entries properly
+  function renderEntries(index) {
+    return tasks.map((task, index) => 
+      <TouchableOpacity key={index} onPress={() => deleteEntry(index)}>
+          <Task text={task}></Task>
+      </TouchableOpacity>);
+  }
 
   return (
     <View style={styles.container}>
@@ -62,7 +66,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#f0f0f0",
     alignItems: "center",
     justifyContent: "center", 
   },

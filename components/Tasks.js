@@ -1,16 +1,19 @@
 import React from 'react';
-import { Button, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
- 
-const Task = ({ text, onDelete }) => {
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import CheckBox from './CheckBox';
+
+// onDelete functional prop is duplicated
+const Task = ({ text, onDelete}) => {
 
     return (
         <View style={styles.item}>
-            <View style={styles.itemBox}>
+            <View style={styles.itemBox} onPress={onDelete}>
                 <TouchableOpacity style={styles.square}></TouchableOpacity>
                 <Text style={styles.itemText}>{text}</Text>
-                <Button style={styles.itemDelete} title="Delete" onPress={onDelete} />
-            </View>   
+                <CheckBox></CheckBox>
+            </View> 
         </View>
+
     )
 }
 
@@ -31,16 +34,13 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     square:{
-        width: 24,
-        height: 24,
+        width: 19,
+        height: 19,
         backgroundColor: "#55BCF6",
         opacity: 0.4,
     },
     itemText:{
         flex: 1,
-    },
-    itemDelete:{
-        marginLeft: 10
     }
 });
 
