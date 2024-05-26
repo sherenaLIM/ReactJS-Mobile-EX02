@@ -1,31 +1,33 @@
 import React from 'react';
-import { Button, StyleSheet } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
 
-const CustomButton = ({text, onClick}) => {
-
-    function onClick() {
-        // specify routes / endpoints to different pages
-        // route to edit page
-        // route to home page
-    }
-
+const CustomButton = ({ text, onClick }) => {
     return (
-        <Button style={styles.rectangle}>{text}
-        </Button>
-    )
+        <TouchableOpacity style={styles.rectangle} onPress={onClick}>
+            <Text style={styles.buttonText}>{text}</Text>
+        </TouchableOpacity>
+    );
 };
 
 const styles = StyleSheet.create({
     rectangle: {
-        
+        backgroundColor: '#b3f0ff', 
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        height: 50,
+        width: 300,
+        borderRadius: 10, 
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderWidth: 2,
+        borderColor: '#000000',
     },
-    edit: {
-  
+    buttonText: {
+        color: '#000000',
+        fontSize: 16,
+        fontWeight: 'bold',
     },
-    home: {
-
-    }
-})
+});
 
 export default CustomButton;

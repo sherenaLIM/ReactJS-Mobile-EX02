@@ -14,9 +14,9 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name="Tasks" component={TaskScreen} />
         <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Edit" component={EditScreen} />
+        <Tab.Screen name="Tasks" component={TaskScreen} />
+        <Tab.Screen name="Edit Tasks" component={EditScreen} />
       </Tab.Navigator>
     </NavigationContainer>  
   );
