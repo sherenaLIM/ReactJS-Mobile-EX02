@@ -39,7 +39,7 @@ export default function TaskScreen() {
     <View style={styles.container}>
       <StatusBar style='auto' />
         <View style={styles.tasksWrapper}>
-          <Text style={styles.sectionTitle}>Today's Tasks:</Text>
+          <Text style={styles.sectionTitle}>Today's Tasks</Text>
             <View style={styles.items}>
               {renderEntries()}
             </View>
@@ -70,7 +70,8 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "#f0f0f0",
         alignItems: "center",
-        justifyContent: "center", 
+        justifyContent: "flex-start", 
+        paddingTop: 70,
     },
     textInput: {
         borderWidth: 1.5,
@@ -91,13 +92,15 @@ const styles = StyleSheet.create({
     sectionTitle:{
         fontSize: 24,
         fontWeight: "bold",
-        marginBottom: 10,
+        marginBottom: 20,
+        position: "absolute", // position the title absolutely
     }, 
     items:{
         marginTop:20,
     },
     tasksWrapper:{
         width:"90%",
+        paddingTop: 20
     },
     writeTaskWrapper:{
         width:"90%",
